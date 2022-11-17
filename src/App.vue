@@ -1,6 +1,6 @@
 <template>
 	<nav>
-		<router-link to="/">Home</router-link> |
+		<router-link to="/">Home</router-link>
 		<router-link to="/datetime">DateTime</router-link>
 	</nav>
 	<router-view />
@@ -23,6 +23,7 @@ nav {
 nav a {
 	font-weight: bold;
 	color: #2c3e50;
+	margin: 15px;
 }
 
 nav a.router-link-exact-active {

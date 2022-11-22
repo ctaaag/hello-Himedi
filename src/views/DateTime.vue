@@ -18,23 +18,25 @@
 					{{
 						item
 					}}
-					<td>{{ dateSample.toLocaleDateString(item, optionList[0]) }}</td>
-					<td>{{ dateSample.toLocaleTimeString(item, optionList[1]) }}</td>
-					<td>{{ dateSample.toLocaleString(item, optionList[2]) }}</td>
+					<td>{{ sampleDate.toLocaleDateString(item, optionList[0]) }}</td>
+					<td>{{ sampleDate.toLocaleTimeString(item, optionList[1]) }}</td>
+					<td>{{ sampleDate.toLocaleString(item, optionList[2]) }}</td>
 				</tr>
 			</tbody>
 		</table>
+		<button class="testfile" id="test" @click="moveRouter">id 값 이동</button>
+		<TestFile id="move" class="move"></TestFile>
 	</div>
 </template>
 
 <script>
-console.log("date: ", Date.now());
-
+import router from "@/router";
+import TestFile from "../components/TestComponent.vue";
 export default {
 	name: "datetimeComponent",
 	data() {
 		return {
-			dateSample: new Date(),
+			sampleDate: new Date(),
 			dateTimeList: ["date", "time", "dateTime"],
 			localeList: ["ar-SA", "ar-AE", "en-US", "en-GB", "ru-RU"],
 			optionList: [
@@ -50,7 +52,17 @@ export default {
 			],
 		};
 	},
-	methods: {},
+	methods: {
+		moveRouter() {
+			router.push({
+				path: "datetime",
+				hash: "#move",
+			});
+		},
+	},
+	components: {
+		TestFile: TestFile,
+	},
 };
 </script>
 
@@ -58,6 +70,9 @@ export default {
 .component_container {
 	display: flex;
 	justify-content: center;
+	flex-direction: column;
+	width: 500px;
+	margin: 0 auto;
 }
 
 .datetime_container {
@@ -70,5 +85,13 @@ export default {
 
 .locale_table {
 	text-align: left;
+}
+
+.move {
+	margin-top: 600px;
+}
+
+.testfile {
+	width: 100px;
 }
 </style>

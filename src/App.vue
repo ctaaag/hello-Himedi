@@ -3,6 +3,7 @@
 		<router-link to="/">Home</router-link>
 		<router-link to="/datetime">DateTime</router-link>
 		<router-link to="/i18n">i18n</router-link>
+		<router-link to="/l10n">l10n</router-link>
 	</nav>
 	<router-view />
 	<!-- 라우터 뷰는 해당 자리에 라우터 컴포넌트가 발생하게 됨 -->

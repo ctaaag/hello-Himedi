@@ -46,6 +46,7 @@ export default {
 			this.$i18n.locale = this.favoriteLang;
 		} else {
 			this.$i18n.locale = navigator.language;
+			console.log(navigator.language);
 		}
 	},
 };

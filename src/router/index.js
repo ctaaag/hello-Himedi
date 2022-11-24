@@ -24,6 +24,14 @@ const routes = [
 				/* webpackChunkName: "datetime" , webpackPrefetch:true */ "../views/VueI18n.vue"
 			),
 	},
+	{
+		path: "/l10n",
+		name: "l10n",
+		component: () =>
+			import(
+				/* webpackChunkName: "datetime" , webpackPrefetch:true */ "../views/VueL10n.vue"
+			),
+	},
 ];
 
 const router = createRouter({

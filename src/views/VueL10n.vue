@@ -15,6 +15,7 @@
 			}).format(currencyNumber)
 		}}
 	</p>
+	<!-- <p>{{ $n(3000, "currency", selectedLangData.localeCode) }}</p> -->
 	<br />
 	<span> Count of 🍌 </span>
 	<input type="number" v-model="bananaNumber" />
@@ -58,8 +59,6 @@ export default {
 			const bananaPluralCheck = new Intl.PluralRules(
 				this.selectedLangData.localeCode
 			).select(this.bananaNumber);
-
-			console.log("check", bananaPluralCheck);
 
 			if (
 				this.selectedLangData.localeCode === "en-US" ||

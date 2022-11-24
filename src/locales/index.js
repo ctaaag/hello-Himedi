@@ -20,12 +20,26 @@ const messages = {
 	},
 };
 
+const numberFormats = {
+	"ar-AE": {
+		currency: {
+			style: "currency",
+			currency: "AED",
+		},
+	},
+	"en-US": {
+		currency: {
+			style: "currency",
+			currency: "USD",
+		},
+	},
+};
+
 const i18nSample = createI18n({
 	locale: navigator.language,
 	fallbackLocale: "ar-AE",
 	pluralizationRules: {
 		"ar-AE": function (choice) {
-			console.log("3", choice);
 			if (choice <= 10) {
 				if (choice === 1) {
 					return 0;
@@ -59,6 +73,7 @@ const i18nSample = createI18n({
 		},
 	},
 	messages,
+	numberFormats,
 });
 
 export default i18nSample;

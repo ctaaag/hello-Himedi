@@ -6,27 +6,14 @@
 		</option>
 	</select>
 
-	<p>
-		Currency :
-		{{
-			new Intl.NumberFormat(selectedLangData.localeCode, {
-				style: "currency",
-				currency: selectedLangData.currencyCode,
-			}).format(currencyNumber)
-		}}
-	</p>
+	<p>Currency : {{ currencyShow() }}</p>
+	<!-- vueI18n 메서드 활용 -->
 	<!-- <p>{{ $n(3000, "currency", selectedLangData.localeCode) }}</p> -->
 	<br />
+
 	<span> Count of 🍌 </span>
 	<input type="number" v-model="bananaNumber" />
-	<p>
-		{{
-			selectedLangData.localeCode === "en-US" ||
-			selectedLangData.localeCode === "en-GB"
-				? changeSuffixes()
-				: $tc("banana", bananaNumber)
-		}}
-	</p>
+	<p>{{ countShow() }}</p>
 </template>
 
 <script>
@@ -44,7 +31,6 @@ export default {
 				localeCode: "ar-AE",
 				currencyCode: "AED",
 			},
-
 			currencyNumber: 3000,
 			bananaNumber: 0,
 		};
@@ -52,6 +38,18 @@ export default {
 	methods: {
 		selectChange() {
 			this.$i18n.locale = this.selectedLangData.localeCode;
+		},
+		currencyShow() {
+			return new Intl.NumberFormat(this.selectedLangData.localeCode, {
+				style: "currency",
+				currency: this.selectedLangData.currencyCode,
+			}).format(this.currencyNumber);
+		},
+		countShow() {
+			return this.selectedLangData.localeCode === "en-US" ||
+				this.selectedLangData.localeCode === "en-GB"
+				? this.changeSuffixes()
+				: this.$tc("banana", this.bananaNumber);
 		},
 		changeSuffixes() {
 			let suffixes;
@@ -71,9 +69,6 @@ export default {
 				return `${this.bananaNumber} ${suffixes.get(bananaPluralCheck)}`;
 			}
 		},
-	},
-	created() {
-		console.log(this.selectedLangData);
 	},
 };
 </script>

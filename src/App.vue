@@ -4,6 +4,7 @@
 		<router-link to="/datetime">DateTime</router-link>
 		<router-link to="/i18n">i18n</router-link>
 		<router-link to="/l10n">l10n</router-link>
+		<router-link to="/rtl">rtl</router-link>
 	</nav>
 	<router-view />
 	<!-- 라우터 뷰는 해당 자리에 라우터 컴포넌트가 발생하게 됨 -->
@@ -14,7 +15,7 @@
 	font-family: Avenir, Helvetica, Arial, sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-	text-align: center;
+	/* text-align: center; */
 	color: #2c3e50;
 }
 

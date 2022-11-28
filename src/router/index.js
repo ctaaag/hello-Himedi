@@ -32,6 +32,11 @@ const routes = [
 				/* webpackChunkName: "datetime" , webpackPrefetch:true */ "../views/VueL10n.vue"
 			),
 	},
+	{
+		path: "/rtl",
+		name: "rtl",
+		component: () => import("../views/RtlPractice.vue"),
+	},
 ];
 
 const router = createRouter({

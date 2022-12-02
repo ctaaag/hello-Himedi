@@ -1,22 +1,36 @@
-<template lang="">
-	<span>언어 선택 </span>
-	<select name="langList" v-model="selectedLang" @change="changeSelect()">
-		<option v-for="(item, key) in langData" v-bind:key="key" :value="item.lang">
-			{{ item.title }}
-		</option>
-	</select>
+<template>
+	<div style="text-align: center">
+		<span>언어 선택 </span>
+		<select name="langList" v-model="selectedLang" @change="changeSelect()">
+			<option
+				v-for="(item, key) in langData"
+				v-bind:key="key"
+				:value="item.lang"
+			>
+				{{ item.title }}
+			</option>
+		</select>
 
-	<br />
-	<span>선호하는 언어</span>
-	<select name="langList" v-model="favoriteLang" @change="changeFavoriteLang()">
-		<option v-for="(item, key) in langData" v-bind:key="key" :value="item.lang">
-			{{ item.title }}
-		</option>
-	</select>
+		<br />
+		<span>선호하는 언어</span>
+		<select
+			name="langList"
+			v-model="favoriteLang"
+			@change="changeFavoriteLang()"
+		>
+			<option
+				v-for="(item, key) in langData"
+				v-bind:key="key"
+				:value="item.lang"
+			>
+				{{ item.title }}
+			</option>
+		</select>
 
-	<p>쿠키값: {{ this.$cookies.get("lang") }}</p>
+		<p>쿠키값: {{ this.$cookies.get("lang") }}</p>
 
-	<p>결과 : {{ $t("text") }}</p>
+		<p>결과 : {{ $t("text") }}</p>
+	</div>
 </template>
 
 <script>

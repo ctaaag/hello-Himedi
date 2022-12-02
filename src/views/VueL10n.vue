@@ -1,19 +1,21 @@
 <template lang="">
-	<span>Select Locale </span>
-	<select v-model="selectedLangData" @change="selectChange">
-		<option v-for="(lang, index) in langData" :key="index" :value="lang">
-			{{ lang.title }}
-		</option>
-	</select>
+	<div style="text-align: center">
+		<span>Select Locale </span>
+		<select v-model="selectedLangData" @change="selectChange">
+			<option v-for="(lang, index) in langData" :key="index" :value="lang">
+				{{ lang.title }}
+			</option>
+		</select>
 
-	<p>Currency : {{ currencyShow() }}</p>
-	<!-- vueI18n 메서드 활용 -->
-	<!-- <p>{{ $n(3000, "currency", selectedLangData.localeCode) }}</p> -->
-	<br />
+		<p>Currency : {{ currencyShow() }}</p>
+		<!-- vueI18n 메서드 활용 -->
+		<!-- <p>{{ $n(3000, "currency", selectedLangData.localeCode) }}</p> -->
+		<br />
 
-	<span> Count of 🍌 </span>
-	<input type="number" v-model="bananaNumber" />
-	<p>{{ countShow() }}</p>
+		<span> Count of 🍌 </span>
+		<input type="number" v-model="bananaNumber" />
+		<p>{{ countShow() }}</p>
+	</div>
 </template>
 
 <script>

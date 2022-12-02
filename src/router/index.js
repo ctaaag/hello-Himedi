@@ -1,6 +1,7 @@
-import { createRouter, createWebHashHistory } from "vue-router";
+import { createRouter, createWebHistory } from "vue-router";
 // import { createRouter } from "vue-router";
 import HomeView from "../views/HomeView.vue";
+// import DateTime from "../views/DateTime.vue";
 
 const routes = [
 	{
@@ -11,17 +12,14 @@ const routes = [
 	{
 		path: "/datetime",
 		name: "datetime",
-		component: () =>
-			import(
-				/* webpackChunkName: "datetime" , webpackPrefetch:true */ "../views/DateTime.vue"
-			),
+		component: () => import("../views/DateTime.vue"),
 	},
 	{
 		path: "/i18n",
 		name: "i18n",
 		component: () =>
 			import(
-				/* webpackChunkName: "datetime" , webpackPrefetch:true */ "../views/VueI18n.vue"
+				/* webpackChunkName: "i18n" , webpackPrefetch:true */ "../views/VueI18n.vue"
 			),
 	},
 	{
@@ -29,7 +27,7 @@ const routes = [
 		name: "l10n",
 		component: () =>
 			import(
-				/* webpackChunkName: "datetime" , webpackPrefetch:true */ "../views/VueL10n.vue"
+				/* webpackChunkName: "l10n" , webpackPrefetch:true */ "../views/VueL10n.vue"
 			),
 	},
 	{
@@ -40,8 +38,8 @@ const routes = [
 ];
 
 const router = createRouter({
-	// history: createWebHistory(),
-	history: createWebHashHistory(),
+	history: createWebHistory(),
+	// history: createWebHashHistory(),
 	scrollBehavior(to) {
 		console.log(to.hash);
 		if (to.hash) {

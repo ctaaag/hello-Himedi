@@ -78,13 +78,6 @@
 			<textarea name="" id="" cols="30" rows="10"></textarea>
 		</section>
 		<hr />
-		<!-- <section>
-			<div>
-				<span>입력</span>
-				<input type="text" />
-				<img dir="rtl" src="../assets/arrow.png" alt="" />
-			</div>
-		</section> -->
 	</div>
 </template>
 <script>

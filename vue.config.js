@@ -26,4 +26,15 @@ module.exports = defineConfig({
 			filename: "[name].css",
 		},
 	},
+	devServer: {
+		proxy: {
+			"/api": {
+				changeOrigin: true,
+				pathRewrite: {
+					"/api": "",
+				},
+				target: "https://dev.gateway.himedi.com/",
+			},
+		},
+	},
 });

@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from "vue-router";
 // import { createRouter } from "vue-router";
 import HomeView from "../views/HomeView.vue";
 // import DateTime from "../views/DateTime.vue";
+import AxiosComponent from "../views/AxiosComponent";
 
 const routes = [
 	{
@@ -34,6 +35,11 @@ const routes = [
 		path: "/rtl",
 		name: "rtl",
 		component: () => import("../views/RtlPractice.vue"),
+	},
+	{
+		path: "/axios",
+		name: "axios",
+		component: AxiosComponent,
 	},
 ];
 

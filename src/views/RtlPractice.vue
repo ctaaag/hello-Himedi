@@ -3,11 +3,16 @@
 		<button
 			v-for="(item, key) in buttonState"
 			v-bind:key="key"
-			v-bind:id="item.id"
+			v-bind:name="item.id"
 			@click="clickButton"
+			class="lang_choice_button"
+			v-bind:class="{ active: item.state }"
 		>
 			{{ item.id }}
 		</button>
+	</div>
+
+	<div class="rtl_option_btn">
 		<button @click="clickRtlCssApplyButton">RTLCSS 적용</button>
 	</div>
 
@@ -36,7 +41,7 @@ export default {
 	methods: {
 		clickButton(event) {
 			this.buttonState.forEach((item) => {
-				if (event.target.id === item.id) {
+				if (event.target.name === item.id) {
 					item.state = true;
 				} else {
 					item.state = false;
@@ -60,4 +65,22 @@ export default {
 	},
 };
 </script>
-<style scoped></style>
+<style scoped>
+.lang_choice_button {
+	border: 1px solid gray;
+	border-radius: 5px;
+	background-color: white;
+	margin: 5px;
+	padding: 10px;
+}
+.active {
+	background-color: blue;
+	border: 1px solid gray;
+	color: white;
+}
+
+.rtl_option_btn {
+	display: flex;
+	justify-content: right;
+}
+</style>

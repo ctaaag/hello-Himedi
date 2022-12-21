@@ -52,3 +52,42 @@ export const TestApi = {
 		});
 	},
 };
+
+export const FetchApi = {
+	getFetch: (route, query) =>
+		fetch(`${BASE_URL}/test/${route}?query=${query}`, {
+			method: "GET",
+			headers: {
+				"Time-Zone": new Date().getTimezoneOffset(),
+			},
+		}),
+	postFetch: (route, query, form) =>
+		fetch(`${BASE_URL}/test/${route}?query=${query}&form=${form}`, {
+			method: "POST",
+			headers: {
+				"Time-Zone": new Date().getTimezoneOffset(),
+			},
+			// body: JSON.stringify(formData),
+		}),
+	deleteFetch: (route, query, form) =>
+		fetch(`${BASE_URL}/test/${route}?query=${query}&form=${form}`, {
+			method: "DELETE",
+			headers: {
+				"Time-Zone": new Date().getTimezoneOffset(),
+			},
+		}),
+	putFetch: (route, query, form) =>
+		fetch(`${BASE_URL}/test/${route}?query=${query}&form=${form}`, {
+			method: "PUT",
+			headers: {
+				"Time-Zone": new Date().getTimezoneOffset(),
+			},
+		}),
+	patchFetch: (route, query, form) =>
+		fetch(`${BASE_URL}/test/${route}?query=${query}&form=${form}`, {
+			method: "PATCH",
+			headers: {
+				"Time-Zone": new Date().getTimezoneOffset(),
+			},
+		}),
+};

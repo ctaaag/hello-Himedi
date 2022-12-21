@@ -1,10 +1,10 @@
 <template lang="">
 	<h1>Axios 구현</h1>
-	<button @click="getData">getData</button>
-	<button @click="postData">postData</button>
-	<button @click="deleteData">deleteData</button>
-	<button @click="putData">putData</button>
-	<button @click="patchData">patchData</button>
+	<button @click="getData">getAxiosData</button>
+	<button @click="postData">postAxiosData</button>
+	<button @click="deleteData">deleteAxiosData</button>
+	<button @click="putData">putAxiosData</button>
+	<button @click="patchData">patchAxiosData</button>
 
 	<hr />
 	<h1>Proxy 구현</h1>
@@ -15,12 +15,18 @@
 	<button @click="proxyPatchData">patchProxy</button>
 
 	<hr />
+	<h1>Fetch 구현</h1>
+	<button @click="getFetch">getFetch</button>
+	<button @click="postFetch">postFetch</button>
+	<button @click="deleteFetch">deleteFetch</button>
+	<button @click="putFetch">putFetch</button>
+	<button @click="patchFetch">patchFetch</button>
 </template>
 <script>
 let formData = new FormData();
 formData.append("sample", "hi");
 
-import { TestApi } from "../SampleApi";
+import { TestApi, FetchApi } from "../SampleApi";
 import axios from "axios";
 
 export default {
@@ -91,6 +97,33 @@ export default {
 					},
 				})
 				.then((res) => console.log(res));
+		},
+		getFetch() {
+			FetchApi.getFetch("test", "hello")
+				.then((res) => {
+					return res.json();
+				})
+				.then((responseData) => console.log("3", responseData));
+		},
+		postFetch() {
+			FetchApi.postFetch("test", "hello", "sample")
+				.then((res) => res.json())
+				.then((responseData) => console.log(responseData));
+		},
+		deleteFetch() {
+			FetchApi.deleteFetch("test", "hello", "sample")
+				.then((res) => res.json())
+				.then((data) => console.log(data));
+		},
+		putFetch() {
+			FetchApi.putFetch("test", "hello", "sample")
+				.then((res) => res.json())
+				.then((data) => console.log(data));
+		},
+		patchFetch() {
+			FetchApi.patchFetch("test", "hello", "sample")
+				.then((res) => res.json())
+				.then((data) => console.log(data));
 		},
 	},
 };

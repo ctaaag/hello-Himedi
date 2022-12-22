@@ -12,7 +12,7 @@ export const api = axios.create({
 	},
 });
 
-export const TestApi = {
+export const TestAxiosAPI = {
 	getTest: (route) =>
 		api.get(`/test/${route}`, {
 			params: {
@@ -47,6 +47,47 @@ export const TestApi = {
 		api.patch(`/test/${route}`, form, {
 			params: {
 				query: "test",
+				form: "sample",
+			},
+		});
+	},
+};
+
+export const ProxyAPI = {
+	getProxy: () => {
+		axios.get(`/api/test/route`, {
+			params: {
+				query: "hello",
+			},
+		});
+	},
+	postProxy: (formData) => {
+		axios.post(`/api/test/query`, formData, {
+			params: {
+				query: "hello",
+				form: "sample",
+			},
+		});
+	},
+	deleteProxy: () => {
+		axios.delete(`/api/test/query`, {
+			params: {
+				query: "hello",
+			},
+		});
+	},
+	putProxy: (formData) => {
+		axios.put(`/api/test/query`, formData, {
+			params: {
+				query: "hello",
+				form: "sample",
+			},
+		});
+	},
+	patchProxy: (formData) => {
+		axios.patch(`/api/test/query`, formData, {
+			params: {
+				query: "hello",
 				form: "sample",
 			},
 		});

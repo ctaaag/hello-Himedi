@@ -1,129 +1,136 @@
 <template lang="">
 	<h1>Axios 구현</h1>
-	<button @click="getData">getAxiosData</button>
-	<button @click="postData">postAxiosData</button>
-	<button @click="deleteData">deleteAxiosData</button>
-	<button @click="putData">putAxiosData</button>
-	<button @click="patchData">patchAxiosData</button>
-
+	<button
+		v-for="(item, index) in axiosList"
+		:key="index"
+		:id="index"
+		@click="axiosData(index)"
+	>
+		{{ item }}
+	</button>
 	<hr />
 	<h1>Proxy 구현</h1>
-	<button @click="proxyGetData">getProxy</button>
-	<button @click="proxyPostData">postProxy</button>
-	<button @click="proxyDeleteData">deleteProxy</button>
-	<button @click="proxyPutData">putProxy</button>
-	<button @click="proxyPatchData">patchProxy</button>
+	<button
+		v-for="(item, index) in proxyList"
+		:key="index"
+		:id="index"
+		@click="proxyData(index)"
+	>
+		{{ item }}
+	</button>
 
 	<hr />
 	<h1>Fetch 구현</h1>
-	<button @click="getFetch">getFetch</button>
-	<button @click="postFetch">postFetch</button>
-	<button @click="deleteFetch">deleteFetch</button>
-	<button @click="putFetch">putFetch</button>
-	<button @click="patchFetch">patchFetch</button>
+	<button
+		v-for="(item, index) in fetchList"
+		:key="index"
+		:id="index"
+		@click="fetchData(index)"
+	>
+		{{ item }}
+	</button>
 </template>
 <script>
 let formData = new FormData();
 formData.append("sample", "hi");
 
-import { TestApi, FetchApi } from "../SampleApi";
-import axios from "axios";
+import { TestAxiosAPI, FetchApi, ProxyAPI } from "../SampleApi";
 
 export default {
+	data() {
+		return {
+			axiosList: [
+				"getAxiosData",
+				"postAxiosData",
+				"deleteAxiosData",
+				"putAxiosData",
+				"patchAxiosData",
+			],
+			proxyList: [
+				"getProxy",
+				"postProxy",
+				"deleteProxy",
+				"putProxy",
+				"patchProxy",
+			],
+			fetchList: [
+				"getFetch",
+				"postFetch",
+				"deleteFetch",
+				"putFetch",
+				"patchFetch",
+			],
+		};
+	},
 	methods: {
-		getData() {
-			TestApi.getTest("test");
+		axiosData(num) {
+			switch (num) {
+				case 0:
+					TestAxiosAPI.getTest("test");
+					break;
+				case 1:
+					TestAxiosAPI.postTest("test", formData);
+					break;
+				case 2:
+					TestAxiosAPI.deleteTest("test");
+					break;
+				case 3:
+					TestAxiosAPI.putTest("test", formData);
+					break;
+				case 4:
+					TestAxiosAPI.patchTest("test", formData);
+					break;
+			}
 		},
-		postData() {
-			TestApi.postTest("test", formData);
+		proxyData(num) {
+			switch (num) {
+				case 0:
+					ProxyAPI.getProxy();
+					break;
+				case 1:
+					ProxyAPI.postProxy();
+					break;
+				case 2:
+					ProxyAPI.deleteProxy();
+					break;
+				case 3:
+					ProxyAPI.putProxy(formData);
+					break;
+				case 4:
+					ProxyAPI.patchProxy(formData);
+					break;
+			}
 		},
-		deleteData() {
-			TestApi.deleteTest("test");
-		},
-		putData() {
-			TestApi.putTest("test", formData);
-		},
-		patchData() {
-			TestApi.patchTest("test", formData);
-		},
-		proxyGetData() {
-			axios
-				.get(`/api/test/route`, {
-					params: {
-						query: "hello",
-					},
-				})
-				.then((res) => console.log(res));
-		},
-		proxyPostData() {
-			let route = "query";
-			axios
-				.post(`/api/test/${route}`, formData, {
-					params: {
-						query: "hello",
-						form: "sample",
-					},
-				})
-				.then((res) => console.log(res));
-		},
-		proxyDeleteData() {
-			let route = "query";
-			axios
-				.delete(`/api/test/${route}`, {
-					params: {
-						query: "hello",
-					},
-				})
-				.then((res) => console.log(res));
-		},
-		proxyPutData() {
-			let route = "query";
-			axios
-				.put(`/api/test/${route}`, formData, {
-					params: {
-						query: "hello",
-						form: "sample",
-					},
-				})
-				.then((res) => console.log(res));
-		},
-		proxyPatchData() {
-			let route = "query";
-			axios
-				.patch(`/api/test/${route}`, formData, {
-					params: {
-						query: "hello",
-						form: "sample",
-					},
-				})
-				.then((res) => console.log(res));
-		},
-		getFetch() {
-			FetchApi.getFetch("test", "hello")
-				.then((res) => {
-					return res.json();
-				})
-				.then((responseData) => console.log("3", responseData));
-		},
-		postFetch() {
-			FetchApi.postFetch("test", "hello", "sample")
-				.then((res) => res.json())
-				.then((responseData) => console.log(responseData));
-		},
-		deleteFetch() {
-			FetchApi.deleteFetch("test", "hello", "sample")
-				.then((res) => res.json())
-				.then((data) => console.log(data));
-		},
-		putFetch() {
-			FetchApi.putFetch("test", "hello", "sample")
-				.then((res) => res.json())
-				.then((data) => console.log(data));
-		},
-		patchFetch() {
-			FetchApi.patchFetch("test", "hello", "sample")
-				.then((res) => res.json())
-				.then((data) => console.log(data));
+		fetchData(num) {
+			switch (num) {
+				case 0:
+					FetchApi.getFetch("test", "hello")
+						.then((res) => {
+							return res.json();
+						})
+						.then((responseData) => console.log(responseData));
+					break;
+				case 1:
+					FetchApi.postFetch("test", "hello", "sample")
+						.then((res) => res.json())
+						.then((responseData) => console.log(responseData));
+					break;
+				case 2:
+					FetchApi.deleteFetch("test", "hello", "sample")
+						.then((res) => res.json())
+						.then((data) => console.log(data));
+					break;
+				case 3:
+					FetchApi.putFetch("test", "hello", "sample")
+						.then((res) => res.json())
+						.then((data) => console.log(data));
+					break;
+				case 4:
+					FetchApi.patchFetch("test", "hello", "sample")
+						.then((res) => res.json())
+						.then((data) => console.log(data));
+					break;
+			}
 		},
 	},
 };

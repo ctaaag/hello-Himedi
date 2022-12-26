@@ -9,6 +9,7 @@
 		{{ item }}
 	</button>
 	<hr />
+
 	<h1>Proxy 구현</h1>
 	<button
 		v-for="(item, index) in proxyList"

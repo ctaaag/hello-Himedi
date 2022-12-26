@@ -108,7 +108,6 @@ export const FetchApi = {
 			headers: {
 				"Time-Zone": new Date().getTimezoneOffset(),
 			},
-			// body: JSON.stringify(formData),
 		}),
 	deleteFetch: (route, query, form) =>
 		fetch(`${BASE_URL}/test/${route}?query=${query}&form=${form}`, {

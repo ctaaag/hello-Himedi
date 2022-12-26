@@ -3,6 +3,9 @@ import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
 // import DateTime from "../views/DateTime.vue";
 import AxiosComponent from "../views/AxiosComponent";
+import RouterLifecycle from "../views/RouterLifecycle";
+import ProfileComponent from "../components/ProfileComponent";
+import PasswordChange from "../components/PasswordChange";
 
 const routes = [
 	{
@@ -41,6 +44,45 @@ const routes = [
 		name: "axios",
 		component: AxiosComponent,
 	},
+	{
+		path: "/router",
+		name: "router",
+		component: RouterLifecycle,
+	},
+	{
+		path: "/router/profile",
+		name: "profile",
+		component: ProfileComponent,
+		// props: true,
+		beforeEnter: () => {
+			const getToken = JSON.parse(localStorage.getItem("loginState"));
+			if (getToken !== null) {
+				if (getToken.state) {
+					return;
+				} else {
+					console.log("ggt");
+					alert("로그인해주세요");
+					return "./router";
+				}
+			} else {
+				alert("로그인해주세요");
+				return "./router";
+			}
+		},
+	},
+	{
+		path: "/router/password",
+		name: "password",
+		component: PasswordChange,
+		beforeEnter: (to) => {
+			if (to.query.loginState === "true") {
+				return;
+			} else {
+				alert("로그인해주세요");
+				return false;
+			}
+		},
+	},
 ];
 
 const router = createRouter({
@@ -56,8 +98,5 @@ const router = createRouter({
 	},
 	routes,
 });
-
-// console.log("createRouter", createRouter);
-// console.log("router", router.hasRoute);
 
 export default router;

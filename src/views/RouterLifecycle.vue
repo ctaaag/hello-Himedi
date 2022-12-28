@@ -38,6 +38,14 @@
 			className="link_profile"
 			>비밀번호 변경(query)</router-link
 		>
+		<router-link
+			:to="{
+				name: 'image',
+				params: { loginState: loginState },
+			}"
+			className="link_profile"
+			>프로필 이미지 변경(params)</router-link
+		>
 	</div>
 </template>
 <script>
@@ -79,13 +87,49 @@ export default {
 			localStorage.removeItem("loginState");
 		},
 	},
+	beforeCreate() {
+		console.log("beforeCreate");
+		console.log("beforeCreate data:", this.username);
+	},
 	created() {
+		console.log("Created");
+		console.log("Created data:", this.username);
 		const getToken = JSON.parse(localStorage.getItem("loginState"));
 		if (getToken !== null) {
 			this.username = getToken.username;
 			this.password = getToken.password;
 			this.loginState = getToken.state;
 		}
+	},
+	beforeMount() {
+		console.log("beforeMount");
+	},
+	mounted() {
+		console.log("mounted");
+	},
+	beforeUpdate() {
+		console.log("beforeUpdate");
+	},
+	updated() {
+		console.log("updated");
+	},
+	beforeUnmount() {
+		console.log("beforeUnmount");
+	},
+	unmounted() {
+		console.log("unmounted");
+	},
+	setup() {
+		console.log("setup");
+	},
+	beforeRouteLeave() {
+		console.log("Router:beforeRouteLeave");
+	},
+	beforeRouteEnter() {
+		console.log("Router:beforeRouteEnter");
+	},
+	beforeRouteUpdate() {
+		console.log("Router:beforeRouteUpdate");
 	},
 };
 </script>

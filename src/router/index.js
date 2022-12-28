@@ -6,6 +6,8 @@ import AxiosComponent from "../views/AxiosComponent";
 import RouterLifecycle from "../views/RouterLifecycle";
 import ProfileComponent from "../components/ProfileComponent";
 import PasswordChange from "../components/PasswordChange";
+import ProfileImage from "../components/ProfileImage";
+import ProductRouter from "../components/ProductRouter";
 
 const routes = [
 	{
@@ -50,17 +52,22 @@ const routes = [
 		component: RouterLifecycle,
 	},
 	{
+		path: "/router/product",
+		name: "product",
+		component: ProductRouter,
+		redirect: "/redirect",
+	},
+	{
 		path: "/router/profile",
 		name: "profile",
 		component: ProfileComponent,
-		// props: true,
 		beforeEnter: () => {
+			console.log("Router:beforeEnter");
 			const getToken = JSON.parse(localStorage.getItem("loginState"));
 			if (getToken !== null) {
 				if (getToken.state) {
 					return;
 				} else {
-					console.log("ggt");
 					alert("로그인해주세요");
 					return "./router";
 				}
@@ -74,10 +81,31 @@ const routes = [
 		path: "/router/password",
 		name: "password",
 		component: PasswordChange,
+		meta: { test: "123" },
 		beforeEnter: (to) => {
+			console.log("to", to);
 			if (to.query.loginState === "true") {
 				return;
 			} else {
+				console.log(to);
+				alert("로그인해주세요");
+				return false;
+			}
+		},
+		props: {
+			sample: "hi",
+		},
+	},
+	{
+		path: "/router/image/:loginState",
+		name: "image",
+		component: ProfileImage,
+		props: true,
+		beforeEnter: (to) => {
+			if (to.params.loginState === "true") {
+				return;
+			} else {
+				console.log(to);
 				alert("로그인해주세요");
 				return false;
 			}
@@ -89,7 +117,7 @@ const router = createRouter({
 	history: createWebHistory(),
 	// history: createWebHashHistory(),
 	scrollBehavior(to) {
-		console.log(to.hash);
+		// console.log(to.hash);
 		if (to.hash) {
 			return {
 				el: to.hash,
@@ -97,6 +125,20 @@ const router = createRouter({
 		}
 	},
 	routes,
+});
+
+router.beforeEach(() => {
+	console.log("Router:beforeEach");
+	// to and from are both route objects. must call `next`.
+});
+
+router.beforeResolve(() => {
+	console.log("Router:beforeResolve");
+	// to and from are both route objects. must call `next`.
+});
+
+router.afterEach(() => {
+	console.log("Router:afterEach");
 });
 
 export default router;

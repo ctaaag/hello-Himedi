@@ -55,7 +55,6 @@ const routes = [
 		path: "/router/product",
 		name: "product",
 		component: ProductRouter,
-		redirect: "/redirect",
 	},
 	{
 		path: "/router/profile",
@@ -64,15 +63,10 @@ const routes = [
 		beforeEnter: () => {
 			console.log("Router:beforeEnter");
 			const getToken = JSON.parse(localStorage.getItem("loginState"));
-			if (getToken !== null) {
-				if (getToken.state) {
-					return;
-				} else {
-					alert("로그인해주세요");
-					return "./router";
-				}
+			if (getToken != null) {
+				return;
 			} else {
-				alert("로그인해주세요");
+				alert("로그인이 필요합니다");
 				return "./router";
 			}
 		},
@@ -88,7 +82,7 @@ const routes = [
 				return;
 			} else {
 				console.log(to);
-				alert("로그인해주세요");
+				alert("로그인이 필요합니다");
 				return false;
 			}
 		},
@@ -103,10 +97,11 @@ const routes = [
 		props: true,
 		beforeEnter: (to) => {
 			if (to.params.loginState === "true") {
+				console.log(to);
 				return;
 			} else {
 				console.log(to);
-				alert("로그인해주세요");
+				alert("로그인이 필요합니다");
 				return false;
 			}
 		},

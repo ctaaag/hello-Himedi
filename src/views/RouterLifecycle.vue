@@ -19,19 +19,20 @@
 			</div>
 		</form>
 	</div>
-	<div className="login_wrapper" v-if="loginState">
-		{{ username }}님 안녕하세요
+
+	<div className="login_wrapper" v-else>
+		<span>{{ username }}님 안녕하세요</span>
 		<div>
 			<button @click="logoutForm">로그아웃</button>
 		</div>
 	</div>
+
 	<div className="profile_move">
-		<hr />
 		<router-link to="/router/product" className="link_profile"
-			>제품페이지</router-link
+			>제품페이지(optional)</router-link
 		>
 		<router-link to="/router/profile" className="link_profile"
-			>내 정보</router-link
+			>내 정보(localStorage)</router-link
 		>
 		<router-link
 			:to="{ name: 'password', query: { loginState: loginState } }"
@@ -47,8 +48,12 @@
 			>프로필 이미지 변경(params)</router-link
 		>
 	</div>
+
+	<LifecycleTestVue />
 </template>
 <script>
+import LifecycleTestVue from "@/components/LifecycleTest.vue";
+
 export default {
 	data: function () {
 		return {
@@ -87,6 +92,10 @@ export default {
 			localStorage.removeItem("loginState");
 		},
 	},
+	components: {
+		LifecycleTestVue,
+	},
+
 	beforeCreate() {
 		console.log("beforeCreate");
 		console.log("beforeCreate data:", this.username);
@@ -94,14 +103,29 @@ export default {
 	created() {
 		console.log("Created");
 		console.log("Created data:", this.username);
-		const getToken = JSON.parse(localStorage.getItem("loginState"));
-		if (getToken !== null) {
+		let getToken;
+		try {
+			localStorage.getItem("loginState");
+			getToken = JSON.parse(localStorage.getItem("loginState"));
 			this.username = getToken.username;
 			this.password = getToken.password;
 			this.loginState = getToken.state;
+		} catch (error) {
+			// console.error("Error", error);
+			this.loginState = false;
+			this.username = "";
+			this.password = "";
+			localStorage.removeItem("loginState");
 		}
 	},
 	beforeMount() {
+		if (this.username == undefined) {
+			alert("데이터 읽는데 오류가 났음");
+			this.loginState = false;
+			this.username = "";
+			this.password = "";
+			localStorage.removeItem("loginState");
+		}
 		console.log("beforeMount");
 	},
 	mounted() {
@@ -109,9 +133,11 @@ export default {
 	},
 	beforeUpdate() {
 		console.log("beforeUpdate");
+		console.log(this.username);
 	},
 	updated() {
 		console.log("updated");
+		console.log(this.username);
 	},
 	beforeUnmount() {
 		console.log("beforeUnmount");
@@ -140,6 +166,7 @@ export default {
 }
 .profile_move {
 	text-align: center;
+	margin-top: 20px;
 }
 .link_profile {
 	margin: 10px;

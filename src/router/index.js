@@ -8,6 +8,7 @@ import ProfileComponent from "../components/ProfileComponent";
 import PasswordChange from "../components/PasswordChange";
 import ProfileImage from "../components/ProfileImage";
 import ProductRouter from "../components/ProductRouter";
+import CompositionExample from "../views/CompositionExample";
 
 const routes = [
 	{
@@ -105,6 +106,11 @@ const routes = [
 				return false;
 			}
 		},
+	},
+	{
+		path: "/composition",
+		name: "composition",
+		component: CompositionExample,
 	},
 ];
 

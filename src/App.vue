@@ -7,6 +7,7 @@
 		<router-link to="/rtl">RTL</router-link>
 		<router-link to="/axios">Axios & Fetch</router-link>
 		<router-link to="/router">Router & LifeCycle</router-link>
+		<router-link to="/composition">Composition</router-link>
 	</nav>
 	<router-view />
 	<!-- 라우터 뷰는 해당 자리에 라우터 컴포넌트가 발생하게 됨 -->

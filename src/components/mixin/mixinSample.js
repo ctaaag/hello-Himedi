@@ -1,8 +1,8 @@
 let mixinSample = {
-	props: {
-		sample: {
-			default: 10,
-		},
+	data() {
+		return {
+			sample: "hi",
+		};
 	},
 	created() {
 		console.log("mixin");

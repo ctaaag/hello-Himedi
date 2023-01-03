@@ -128,6 +128,8 @@ const router = createRouter({
 	routes,
 });
 
+console.log(CompositionExample);
+
 router.beforeEach(() => {
 	console.log("Router:beforeEach");
 	// to and from are both route objects. must call `next`.

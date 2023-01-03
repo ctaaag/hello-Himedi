@@ -24,30 +24,30 @@
 	</div>
 	<div>
 		<span>composition 컴포넌트 외부 선언 : </span>
-		<input type="number" v-model="number1" />
+		<input type="number" v-model="numbers.number1" />
 		<span>+</span>
-		<input type="number" v-model="number2" />
+		<input type="number" v-model="numbers.number2" />
 		<span>=</span>
-		<span>{{ sampleResult }}</span>
+		<span>{{ numbers.sampleResult }}</span>
 	</div>
 </template>
 <script>
-import { reactive, computed, toRefs } from "vue";
+import { reactive, computed, ref } from "vue";
 import mixinSample from "../components/mixin/mixinSample";
 import { compositionReactiveSample } from "../components/composition/compositionExample";
 
 function plusCalculator() {
-	let state = reactive({
-		num1: 0,
-		num2: 0,
-		result: computed(() => state.num1 + state.num2),
-	});
-	return toRefs(state);
+	const num1 = ref(0);
+	const num2 = ref(0);
+	const result = ref(computed(() => num1.value + num2.value));
+
+	return { num1, num2, result };
 }
 
 export default {
 	setup() {
-		let { number1, number2, sampleResult } = compositionReactiveSample();
+		let { numbers } = compositionReactiveSample();
+
 		let { num1, num2, result } = plusCalculator();
 		const state = reactive({
 			numExam1: 0,
@@ -63,9 +63,7 @@ export default {
 			num1,
 			num2,
 			result,
-			number1,
-			number2,
-			sampleResult,
+			numbers,
 		};
 	},
 	mixins: [mixinSample],

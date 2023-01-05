@@ -27,7 +27,7 @@
 		</div>
 	</div>
 
-	<div className="profile_move">
+	<div className="router_wrapper">
 		<router-link to="/router/product" className="link_profile"
 			>제품페이지(optional)</router-link
 		>
@@ -111,7 +111,6 @@ export default {
 			this.password = getToken.password;
 			this.loginState = getToken.state;
 		} catch (error) {
-			// console.error("Error", error);
 			this.loginState = false;
 			this.username = "";
 			this.password = "";
@@ -164,7 +163,7 @@ export default {
 .login_wrapper {
 	text-align: center;
 }
-.profile_move {
+.router_wrapper {
 	text-align: center;
 	margin-top: 20px;
 }

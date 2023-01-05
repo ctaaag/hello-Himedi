@@ -9,6 +9,7 @@ import PasswordChange from "../components/PasswordChange";
 import ProfileImage from "../components/ProfileImage";
 import ProductRouter from "../components/ProductRouter";
 import CompositionExample from "../views/CompositionExample";
+import TodoComposition from "../views/TodoComposition";
 
 const routes = [
 	{
@@ -92,7 +93,7 @@ const routes = [
 		},
 	},
 	{
-		path: "/router/image/:loginState",
+		path: "/router/image/:loginState/:enter",
 		name: "image",
 		component: ProfileImage,
 		props: true,
@@ -112,6 +113,11 @@ const routes = [
 		name: "composition",
 		component: CompositionExample,
 	},
+	{
+		path: "/todoapp",
+		name: "todoapp",
+		component: TodoComposition,
+	},
 ];
 
 const router = createRouter({
@@ -128,7 +134,7 @@ const router = createRouter({
 	routes,
 });
 
-console.log(CompositionExample);
+// console.log(CompositionExample);
 
 router.beforeEach(() => {
 	console.log("Router:beforeEach");

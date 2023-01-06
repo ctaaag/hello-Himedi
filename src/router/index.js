@@ -10,6 +10,7 @@ import ProfileImage from "../components/ProfileImage";
 import ProductRouter from "../components/ProductRouter";
 import CompositionExample from "../views/CompositionExample";
 import TodoComposition from "../views/TodoComposition";
+import SassApple from "../views/SassApple";
 
 const routes = [
 	{
@@ -93,7 +94,7 @@ const routes = [
 		},
 	},
 	{
-		path: "/router/image/:loginState/:enter",
+		path: "/router/image/:loginState",
 		name: "image",
 		component: ProfileImage,
 		props: true,
@@ -117,6 +118,11 @@ const routes = [
 		path: "/todoapp",
 		name: "todoapp",
 		component: TodoComposition,
+	},
+	{
+		path: "/sassapple",
+		name: "sassapple",
+		component: SassApple,
 	},
 ];
 

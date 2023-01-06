@@ -17,8 +17,8 @@
 		<section>
 			<h1 class="title">Image</h1>
 			<div>
-				<img src="../assets/신짱구.png" alt="" />
-				<img src="../assets/신짱구.png" alt="" />
+				<img src="../assets/images/신짱구.png" alt="" />
+				<img src="../assets/images/신짱구.png" alt="" />
 			</div>
 		</section>
 		<section>

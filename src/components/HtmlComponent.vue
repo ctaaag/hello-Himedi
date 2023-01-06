@@ -17,8 +17,8 @@
 		<section>
 			<h1>Image</h1>
 			<div dir="rtl">
-				<img dir="rtl" src="../assets/신짱구.png" alt="" />
-				<img src="../assets/신짱구.png" alt="" />
+				<img dir="rtl" src="../assets/images/신짱구.png" alt="" />
+				<img src="../assets/images/신짱구.png" alt="" />
 			</div>
 		</section>
 		<section>

@@ -25,6 +25,13 @@ module.exports = defineConfig({
 		extract: {
 			filename: "[name].css",
 		},
+		loaderOptions: {
+			sass: {
+				additionalData: `
+					@import "@/assets/scss/index.scss";
+				`,
+			},
+		},
 	},
 	devServer: {
 		proxy: {

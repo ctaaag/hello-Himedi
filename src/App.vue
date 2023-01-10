@@ -4,8 +4,9 @@
 </template>
 
 <style>
+@import url(./font/sanfrancisco-font.css);
 #app {
-	font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+	font-family: "San Francisco", BlinkMacSystemFont, sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	/* text-align: auto; */

@@ -1,46 +1,5 @@
 <template lang="">
 	<div>
-		<!-- <header class="header_wrapper_mobile">
-			<ul class="header_list_wrapper">
-				<li class="header_list_logo">
-					<img
-						class="header_logo_image"
-						src="@/assets/images/menu_icon.png"
-						alt=""
-						@click="phoneHeaderNavClick"
-					/>
-				</li>
-				<li class="header_list_logo">
-					<img
-						class="header_logo_image"
-						src="@/assets/images/apple_icon.png"
-						alt=""
-					/>
-				</li>
-				<li>
-					<img
-						class="header_logo_image"
-						src="@/assets/images/shopping_icon.png"
-						alt=""
-					/>
-				</li>
-			</ul>
-			<ul
-				:class="[isShowHeaderModal ? 'header_menu_show' : 'header_menu_hidden']"
-			>
-				<div class="menu_inner_items">
-					<input class="menu_search" type="text" placeholder="apple.com 검색" />
-					<li
-						class="header_item"
-						v-for="(item, index) in headerOptionList"
-						:key="index"
-					>
-						{{ item }}
-					</li>
-				</div>
-			</ul>
-		</header> -->
-
 		<header class="header_wrapper">
 			<ul class="header_list">
 				<li class="header_list_logo_menu">
@@ -182,12 +141,12 @@ export default {
 
 .header_list {
 	display: flex;
-	justify-content: space-around;
+	justify-content: space-between;
 	align-items: center;
 	list-style: none;
 	list-style-position: inside;
 	padding: 0;
-	margin: 0;
+	margin: 30px;
 	width: 980px;
 	max-width: 980px;
 }

@@ -73,45 +73,20 @@ export default {
 	},
 };
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 .section_headline {
 	color: black;
 }
 
-.header_wrapper_mobile {
-	z-index: 43;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	background-color: black;
-	height: 48px;
-	position: fixed;
-	width: 100%;
-}
-
-.header_list_wrapper {
-	display: flex;
-	justify-content: space-between;
-	width: 100%;
-	list-style: none;
-	padding: 10px 30px;
-	margin: 0;
-}
-
 .header_wrapper {
+	@include flex(center, center);
+	@include heigth(48);
 	position: fixed;
 	z-index: 43;
-	display: flex;
 	margin: 0 auto;
-	justify-content: center;
-	align-items: center;
-	background-color: black;
-	height: 48px;
-	position: fixed;
 	width: 100%;
-	// @include mobile {
-	// 	visibility: hidden;
-	// }
+	background-color: black;
+	position: fixed;
 }
 
 .header_logo_link {
@@ -134,21 +109,15 @@ export default {
 	@include desktop {
 		display: none;
 	}
-	// @include mobile {
-
-	// }
 }
 
 .header_list {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
+	@include flex(space-between, center);
+	@include width(980);
 	list-style: none;
 	list-style-position: inside;
-	padding: 0;
-	margin: 30px;
-	width: 980px;
 	max-width: 980px;
+	padding: 10px;
 }
 
 .header_logo_image {

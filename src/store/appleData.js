@@ -112,6 +112,7 @@ const footerList = [
 			"AirTag",
 			"액세서리",
 		],
+		isShowCategory: false,
 	},
 	[
 		{
@@ -126,11 +127,13 @@ const footerList = [
 				"Apple Podcast",
 				"App Store",
 			],
+			isShowCategory: false,
 		},
 		{
 			col: 2,
 			title: "계정",
 			list: ["Apple ID 관리", "Apple Store 계정", "iCloud.com"],
+			isShowCategory: false,
 		},
 	],
 	{
@@ -148,13 +151,16 @@ const footerList = [
 			"주문 상태",
 			"쇼핑 도움말",
 		],
+		isShowCategory: false,
 	},
 	[
 		{
 			col: 4,
 			title: "비즈니스",
 			list: ["Apple과 비즈니스", "비즈니스를 위한 제품 쇼핑하기"],
+			isShowCategory: false,
 		},
+
 		{
 			col: 4,
 			title: "교육",
@@ -163,6 +169,7 @@ const footerList = [
 				"초중고용 제품 쇼핑하기",
 				"대학 생활을 위한 제품 쇼핑하기",
 			],
+			isShowCategory: false,
 		},
 	],
 	[
@@ -176,6 +183,7 @@ const footerList = [
 				"개인정보 보호",
 				"협력업체에 대한 책임",
 			],
+			isShowCategory: false,
 		},
 		{
 			col: 5,
@@ -189,6 +197,7 @@ const footerList = [
 				"일자리 창출",
 				"Apple 연락처",
 			],
+			isShowCategory: false,
 		},
 	],
 ];

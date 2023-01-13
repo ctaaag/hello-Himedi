@@ -104,11 +104,24 @@ export default {
 	background-size: 190px 72px;
 	background-repeat: no-repeat;
 	background-position: center;
+	@include mainChange {
+		height: 40px;
+		background-size: 110px 40px;
+	}
 }
 
 .section_headline {
 	font-size: 56px;
 	font-weight: 600;
+	@include mainChange {
+		font-size: 32px;
+	}
+}
+
+.section_subhead {
+	@include mainChange {
+		font-size: 16px;
+	}
 }
 
 .section_link_detail:hover {
@@ -118,6 +131,10 @@ export default {
 .section_link_detail {
 	text-decoration: none;
 	font-size: 21px;
+	@include mainChange {
+		font-size: 16px;
+		font-weight: 400;
+	}
 }
 
 .section_link_buy:hover {
@@ -136,6 +153,10 @@ export default {
 	margin-left: 35px;
 	font-size: 21px;
 	font-weight: 400;
+	@include mainChange {
+		font-size: 16px;
+		font-weight: 400;
+	}
 }
 
 .link_icon {
@@ -164,6 +185,12 @@ export default {
 	padding: 0;
 
 	background-position-x: center;
+
+	@include mainChange {
+		width: 100%;
+		background-size: 1500px 548px;
+		height: 548px;
+	}
 }
 
 .main_promotion_copy_wrapper {
@@ -172,6 +199,10 @@ export default {
 	position: relative;
 	z-index: 4;
 	height: 700px;
+
+	@include mainChange {
+		height: 548px;
+	}
 }
 
 //
@@ -183,17 +214,27 @@ export default {
 .sub_promotion {
 	display: grid;
 	grid-template-rows: repeat(2, 580px);
-	grid-template-columns: repeat(2, 50%);
+	grid-template-columns: 1fr 1fr;
 	gap: 15px;
+	@include mainChange {
+		grid-template-columns: 1fr;
+		grid-template-rows: 1fr;
+		gap: 0;
+	}
 }
 
 .sub_promotion_image {
-	width: 50%;
+	width: calc(50% - 15px);
 	height: 580px;
 	background-size: 1500px 624px;
 	background-repeat: no-repeat;
 	background-position-x: center;
 	position: absolute;
+	@include mainChange {
+		width: 100%;
+		background-size: 750px 548px;
+		height: 548px;
+	}
 }
 
 .sub_promotion_copy_wrapper {
@@ -202,6 +243,9 @@ export default {
 	position: relative;
 	z-index: 4;
 	height: 620px;
+	@include mainChange {
+		height: 548px;
+	}
 }
 
 .sub_promotion_headline {

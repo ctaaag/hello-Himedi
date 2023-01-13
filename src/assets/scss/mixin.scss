@@ -10,4 +10,23 @@
 	}
 }
 
+@mixin mainChange {
+	@media (max-width: 734px) {
+		@content;
+	}
+}
+
+@mixin flex($justify, $align) {
+	display: flex;
+	justify-content: $justify;
+	align-items: $align;
+}
+
+@mixin width($width) {
+	width: ($width / 16) + rem;
+}
+
+@mixin heigth($height) {
+	height: ($height / 16) + rem;
+}
 //

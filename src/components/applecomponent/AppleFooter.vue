@@ -102,11 +102,7 @@ footer {
 .footer_nav_wrapper {
 	display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(20%, auto));
-	// justify-content: space-between;
 	padding: 0;
-	// @include mobile {
-	// 	display: none;
-	// }
 	@include mobile {
 		grid-template-columns: 1fr;
 		grid-template-rows: 0.5fr;
@@ -134,11 +130,9 @@ footer {
 		margin: 0px;
 		padding: 0px;
 	}
-	// transition: all 0.5s;
 }
 
 .column_list {
-	// transition: all 0.5s;
 	@include mobile {
 		height: 0;
 		visibility: hidden;

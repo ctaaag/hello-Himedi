@@ -12,6 +12,9 @@ import appleCard from "../assets/images/applecard.png";
 import ipadPro from "../assets/images/ipadPro.png";
 import airPods from "../assets/images/airpods.png";
 import m2Chip from "../assets/images/m2chip.png";
+import luck from "@/assets/images/apple_tv_luck.png";
+import human from "@/assets/images/apple_tv_human.png";
+import slow from "../assets/images/apple_tv_slow.png";
 
 const headerOptionList = [
 	"스토어",
@@ -202,4 +205,12 @@ const footerList = [
 	],
 ];
 
-export { headerOptionList, mainPromotionList, subPromotionList, footerList };
+const SlideList = [{ image: luck }, { image: human }, { image: slow }];
+
+export {
+	headerOptionList,
+	mainPromotionList,
+	subPromotionList,
+	footerList,
+	SlideList,
+};

@@ -11,6 +11,7 @@ import ProductRouter from "../components/ProductRouter";
 import CompositionExample from "../views/CompositionExample";
 import TodoComposition from "../views/TodoComposition";
 import SassApple from "../views/SassApple";
+import WebFont from "../views/WebFont";
 
 const routes = [
 	{
@@ -123,6 +124,11 @@ const routes = [
 		path: "/sassapple",
 		name: "sassapple",
 		component: SassApple,
+	},
+	{
+		path: "/webfont",
+		name: "webfont",
+		component: WebFont,
 	},
 ];
 

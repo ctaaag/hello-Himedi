@@ -96,7 +96,6 @@ export default {
 		font-size: 12px;
 	}
 	@include mobile {
-		// visibility: hidden;
 		display: none;
 	}
 }
@@ -122,26 +121,32 @@ export default {
 
 .header_logo_image {
 	height: 18px;
+	-webkit-filter: brightness(0) invert(1);
 	filter: brightness(0) invert(1);
 }
 
 .header_menu_show {
-	// height: 6000px;
 	background-color: black;
 	list-style: none;
 	padding: 0;
-	// z-index: 10;
+	-webkit-transition: height 0.5s;
+	-o-transition: height 0.5s;
 	transition: height 0.5s;
 	overflow: hidden;
 	visibility: visible;
+	position: fixed;
 	height: 100vh;
-	// display: none;
+	padding-top: 70px;
+	z-index: 42;
+	width: 100%;
 }
 
 .header_menu_hidden {
-	visibility: hidden;
+	visibility: visible;
 	display: none;
 	height: 0;
+	-webkit-transition: height 0.5s;
+	-o-transition: height 0.5s;
 	transition: height 0.5s;
 }
 
@@ -158,7 +163,7 @@ export default {
 
 .menu_search {
 	width: 100%;
-	// opacity: 1;
+
 	background: none;
 	border-radius: 10px;
 	color: #6e6e73;

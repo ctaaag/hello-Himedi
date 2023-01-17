@@ -59,13 +59,6 @@
 						:style="{ 'background-image': `url(${item.titleLink})` }"
 						class="sub_promotion_headline_image"
 					></h4>
-					<!-- <h5
-						v-if="item.subImage"
-						:style="{ color: `${item.color}` }"
-						class="sub_promotion_subline"
-					>
-						{{ item.sub }}
-					</h5> -->
 					<h5 :style="{ color: `${item.color}` }" class="sub_promotion_subline">
 						{{ item.sub }}
 					</h5>
@@ -96,6 +89,7 @@ export default {
 </script>
 <style lang="scss">
 .main_promotion_wrapper {
+	display: -ms-grid;
 	display: grid;
 }
 
@@ -120,7 +114,7 @@ export default {
 
 .section_subhead {
 	@include mainChange {
-		font-size: 16px;
+		font-size: 20px;
 	}
 }
 
@@ -161,6 +155,7 @@ export default {
 
 .link_icon {
 	width: 20px;
+	-webkit-filter: opacity(0.4) drop-shadow(16px 16px 20px blue);
 	filter: opacity(0.4) drop-shadow(16px 16px 20px blue);
 }
 
@@ -177,15 +172,12 @@ export default {
 	height: 720px;
 	background-size: 3000px 720px;
 	background-repeat: no-repeat;
-
 	z-index: 1;
 	position: absolute;
 	border: 0;
 	margin: 0;
 	padding: 0;
-
 	background-position-x: center;
-
 	@include mainChange {
 		width: 100%;
 		background-size: 1500px 548px;
@@ -199,7 +191,6 @@ export default {
 	position: relative;
 	z-index: 4;
 	height: 700px;
-
 	@include mainChange {
 		height: 548px;
 	}
@@ -215,7 +206,7 @@ export default {
 	display: grid;
 	grid-template-rows: repeat(2, 580px);
 	grid-template-columns: 1fr 1fr;
-	gap: 15px;
+	// gap: 15px;
 	@include mainChange {
 		grid-template-columns: 1fr;
 		grid-template-rows: 1fr;
@@ -224,7 +215,7 @@ export default {
 }
 
 .sub_promotion_image {
-	width: calc(50% - 15px);
+	width: calc(50%);
 	height: 580px;
 	background-size: 1500px 624px;
 	background-repeat: no-repeat;

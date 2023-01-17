@@ -14,6 +14,7 @@
 			<!-- <router-link to="{name:'todoapp'}">Todo(composition)</router-link> -->
 			<router-link to="/todoapp">Todo(composition)</router-link>
 			<router-link to="/sassapple">SassApple</router-link>
+			<router-link to="/webfont">WebFont</router-link>
 		</nav>
 	</div>
 </template>

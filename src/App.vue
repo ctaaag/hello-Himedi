@@ -6,9 +6,9 @@
 <style>
 /* @import url(./font/sanfrancisco-font.css); */
 #app {
-	/* font-family: "San Francisco", BlinkMacSystemFont, sans-serif; */
+	/* font-family: 'San Francisco', BlinkMacSystemFont, sans-serif;
 	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
+	-moz-osx-font-smoothing: grayscale; */
 	/* text-align: auto; */
 	color: #2c3e50;
 	/* margin: 50px auto; */

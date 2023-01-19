@@ -13,6 +13,7 @@
 			<p :lang="selectedLangData.value" :class="selectedLangData.name">
 				{{ selectedLangData.contents }}
 			</p>
+			<p>not use lang</p>
 		</div>
 	</div>
 </template>
@@ -37,65 +38,20 @@ export default {
 		selectChange() {
 			console.log(this.selectedLangData);
 		},
-		// fileUploadClick(e) {
-		// 	let file = e.target.files[0];
-		// 	let url = URL.createObjectURL(file);
-		// 	console.log(url);
-		// 	const itemImage = this.$refs.test2;
-		// 	itemImage.src = URL.createObjectURL(file);
-		// 	console.log(itemImage.src);
-		// 	itemImage.width = '200'; // 이미지 넓이
-
-		// },
 	},
 };
 </script>
 <style lang="scss" scoped>
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script');
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@100;400;500;600');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;700&display=block');
+// @import url('https://fonts.googleapis.com/css2?family=Dancing+Script');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@100;400;500;600&display=optional');
 
-// @font-face {
-// 	font-family: Noto;
-// 	src: url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300&display=swap');
-// 	font-weight: 300;
-// }
-
-// @font-face {
-// 	font-family: Dancing Script;
-// 	src: url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
-// 	font-weight: 400;
-// }
-
-// @font-face {
-// 	font-family: Dancing Script;
-// 	src: url('https://fonts.gstatic.com/s/dancingscript/v24/If2cXTr6YS-zF4S-kcSWSVi_sxjsohD9F50Ruu7BMSo3Sup8hNX6plRP.woff2');
-// 	font-weight: 400;
-// }
-
-// @font-face {
-// 	font-family: Noto Sans;
-// 	src: url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@700&display=swap');
-// 	font-weight: 700;
-// }
-
-// @font-face {
-// 	font-family: Noto2;
-// 	src: url('https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@300&display=swap');
-// 	font-weight: 300;
-// }
-
-// @font-face {
-// 	font-family: Noto2;
-// 	src: url('https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@300&display=swap');
-// 	font-weight: 400;
-// }
-
-// @font-face {
-// 	font-family: Noto2;
-// 	src: url('https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@700&display=swap');
-// 	font-weight: 700;
-// }
+@font-face {
+	font-family: Dancing Script;
+	src: url('https://fonts.gstatic.com/s/dancingscript/v24/If2cXTr6YS-zF4S-kcSWSVi_sxjsohD9F50Ruu7BMSo3Sup8hNX6plRP.woff2');
+	font-weight: 400;
+	font-display: fallback;
+}
 
 .webfont_wrapper {
 	// font-family: Noto;
@@ -106,13 +62,11 @@ export default {
 
 :lang(en-US) {
 	font-family: Noto Sans;
-	// display: swap;
-	font-display: swap;
+	font-display: block;
 }
 
 :lang(en-GB) {
 	font-family: Dancing Script;
-	// display: swap;
 	font-display: fallback;
 }
 

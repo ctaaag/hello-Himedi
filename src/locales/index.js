@@ -1,45 +1,46 @@
-import { createI18n } from "vue-i18n";
+// import VueI18n from 'vue-i18n';
+import { createI18n } from 'vue-i18n';
 
 const messages = {
-	"ar-SA": {
-		text: "مرحبًا ، عالم vue",
+	'ar-SA': {
+		text: 'مرحبًا ، عالم vue',
 	},
-	"ar-AE": {
-		banana: "{n}موزة | {n}حبة موز  | {n}موز | {n} موزات ",
+	'ar-AE': {
+		banana: '{n}موزة | {n}حبة موز  | {n}موز | {n} موزات ',
 	},
-	"en-US": {
-		text: "hello,vue world",
-		banana: "banana | bananas",
+	'en-US': {
+		text: 'hello,vue world',
+		banana: 'banana | bananas',
 	},
-	"en-GB": {
-		banana: "banana | bananas",
+	'en-GB': {
+		banana: 'banana | bananas',
 	},
-	"ru-RU": {
-		text: "привет, вью мир",
-		banana: "{n} банан | {n} банана | {n} бананов",
+	'ru-RU': {
+		text: 'привет, вью мир',
+		banana: '{n} банан | {n} банана | {n} бананов',
 	},
 };
 
 const numberFormats = {
-	"ar-AE": {
+	'ar-AE': {
 		currency: {
-			style: "currency",
-			currency: "AED",
+			style: 'currency',
+			currency: 'AED',
 		},
 	},
-	"en-US": {
+	'en-US': {
 		currency: {
-			style: "currency",
-			currency: "USD",
+			style: 'currency',
+			currency: 'USD',
 		},
 	},
 };
 
 const i18nSample = createI18n({
 	locale: navigator.language,
-	fallbackLocale: "ar-AE",
+	fallbackLocale: 'ar-AE',
 	pluralizationRules: {
-		"ar-AE": function (choice) {
+		'ar-AE': function (choice) {
 			if (choice <= 10) {
 				if (choice === 1) {
 					return 0;
@@ -54,7 +55,7 @@ const i18nSample = createI18n({
 				return 0;
 			}
 		},
-		"ru-RU": function (choice) {
+		'ru-RU': function (choice) {
 			if (choice >= 5 && choice <= 20) {
 				return 2;
 			} else {

@@ -57,7 +57,7 @@
 	</div>
 </template>
 <script>
-import { headerOptionList } from "@/store/appleData";
+import { headerOptionList } from '@/store/appleData';
 
 export default {
 	data() {
@@ -80,7 +80,8 @@ export default {
 
 .header_wrapper {
 	@include flex(center, center);
-	@include heigth(48);
+	// @include heigth(48);
+	height: 48px;
 	position: fixed;
 	z-index: 43;
 	margin: 0 auto;
@@ -112,7 +113,8 @@ export default {
 
 .header_list {
 	@include flex(space-between, center);
-	@include width(980);
+	width: 980px;
+	// @include width(980);
 	list-style: none;
 	list-style-position: inside;
 	max-width: 980px;

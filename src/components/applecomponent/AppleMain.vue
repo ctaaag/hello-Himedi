@@ -76,7 +76,7 @@
 	</main>
 </template>
 <script>
-import { mainPromotionList, subPromotionList } from "@/store/appleData";
+import { mainPromotionList, subPromotionList } from '@/store/appleData';
 
 export default {
 	data() {
@@ -136,10 +136,10 @@ export default {
 }
 
 .section_link_title::after {
-	content: "＞";
+	content: '＞';
 }
 .section_link_buy::after {
-	content: "＞";
+	content: '＞';
 }
 
 .section_link_buy {

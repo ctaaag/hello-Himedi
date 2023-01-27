@@ -17,8 +17,8 @@
 		<section>
 			<h1>Image</h1>
 			<div dir="rtl">
-				<img dir="rtl" src="../assets/images/신짱구.png" alt="" />
-				<img src="../assets/images/신짱구.png" alt="" />
+				<!-- <img dir="rtl" src="../assets/images/신짱구.png" alt="" />
+				<img src="../assets/images/신짱구.png" alt="" /> -->
 			</div>
 		</section>
 		<section>
@@ -27,9 +27,9 @@
 				<div v-for="(item, index) in locales" :key="index">
 					{{
 						new Date().toLocaleDateString(item, {
-							year: "numeric",
-							month: "short",
-							day: "numeric",
+							year: 'numeric',
+							month: 'short',
+							day: 'numeric',
 						})
 					}}
 				</div>
@@ -84,7 +84,7 @@
 export default {
 	data() {
 		return {
-			locales: ["ar-SA", "en-US", "ru-RU"],
+			locales: ['ar-SA', 'en-US', 'ru-RU'],
 		};
 	},
 };

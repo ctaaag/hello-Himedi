@@ -1,19 +1,20 @@
-const { defineConfig } = require("@vue/cli-service");
-const WebpackRTLPlugin = require("webpack-rtl-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const { defineConfig } = require('@vue/cli-service');
+const WebpackRTLPlugin = require('webpack-rtl-plugin');
+// const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = defineConfig({
 	transpileDependencies: true,
 
 	pluginOptions: {
 		i18n: {
-			locale: "en",
-			fallbackLocale: "en",
-			localeDir: "locales",
-			enableLegacy: true,
-			runtimeOnly: false,
-			compositionOnly: true,
-			fullInstall: true,
+			locale: 'en',
+			fallbackLocale: 'en',
+			localeDir: 'aseets/locales',
+			enableInSFC: true,
+			// enableLegacy: true,
+			// runtimeOnly: false,
+			// compositionOnly: true,
+			// fullInstall: true,
 		},
 	},
 
@@ -23,7 +24,7 @@ module.exports = defineConfig({
 
 	css: {
 		extract: {
-			filename: "[name].css",
+			filename: '[name].css',
 		},
 		loaderOptions: {
 			sass: {
@@ -35,12 +36,12 @@ module.exports = defineConfig({
 	},
 	devServer: {
 		proxy: {
-			"/api": {
+			'/api': {
 				changeOrigin: true,
 				pathRewrite: {
-					"/api": "",
+					'/api': '',
 				},
-				target: "https://dev.gateway.himedi.com/",
+				target: 'https://dev.gateway.himedi.com/',
 			},
 		},
 	},

@@ -24,7 +24,7 @@ FROM nginx:1.23.3-alpine AS prod-stage
 # dist 폴더 파일을 nginx html 경로에 copy하기 
 COPY --from=build /app/dist /usr/share/nginx/html
 # 80 포트로 export 하기
-EXPOSE 81
+EXPOSE 80
 # nginx 실행하기
 CMD ["nginx", "-g", "daemon off;"]
 

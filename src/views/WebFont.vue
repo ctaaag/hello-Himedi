@@ -13,7 +13,7 @@
 			<p :lang="selectedLangData.value" :class="selectedLangData.name">
 				{{ selectedLangData.contents }}
 			</p>
-			<p>not use lang</p>
+			<p>폰트 적용 안한 문자</p>
 		</div>
 	</div>
 </template>

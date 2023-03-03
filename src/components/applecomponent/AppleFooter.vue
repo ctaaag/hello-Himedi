@@ -62,7 +62,7 @@
 	</footer>
 </template>
 <script>
-import { footerList } from "@/store/appleData";
+import { footerList } from '@/store/appleData';
 
 export default {
 	data() {
@@ -72,7 +72,7 @@ export default {
 	},
 	methods: {
 		onClickFooterList(listWrapper) {
-			console.log("listWrapper", listWrapper);
+			console.log('listWrapper', listWrapper);
 			listWrapper.isShowCategory = !listWrapper.isShowCategory;
 		},
 	},

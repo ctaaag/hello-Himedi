@@ -1,5 +1,8 @@
 # 하이메디 프론트엔드 개발자 온보딩 저장소
 
+# 배포링크
+https://hello-vuejs-steel.vercel.app
+
 # 주요 프로젝트
 ### 1. DateTime
 - datetime을 아랍어, 러시아어, 영어 등을 Javascript toLocale을 통해 구현
@@ -74,9 +77,3 @@ himedi-web의 Docker 파일을 참고하여 아래 기능을 만족하는 Docker
 - 빌드 명령을 스크립트 파일(.sh)로 작성
 - 스터디내용 : https://ctaaaglog.vercel.app/docker
 
-
-# 
-https://ctaaaglog.vercel.app/
-
-# 배포링크
-https://hello-vuejs-steel.vercel.app
